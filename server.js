@@ -21,7 +21,7 @@ app.use(cors());
 
 //Routes
 app.post("/inregistrare" , async (req,res)=>{
-    try{
+   try{
         const verifica = await pool.query(`SELECT COUNT(id_utilizator) FROM utilizatori WHERE nume_utilizator='${req.body.nume}'`);
 
         if(verifica.rows[0].count != 0) res.json({
